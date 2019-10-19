@@ -60,10 +60,16 @@ var quotes = [
 ***/
 function getRandomQuote() {
   const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
-  return randomNumber;
+  const randomQuote = quotes[randomNumber]; // quotes[3] quote ko number 3 ko quotes tancha yesle. 
+  
+  console.log(randomNumber);
+  console.log(randomQuote);
+  
+  return randomQuote; 
+  
 };
 
-console.log(getRandomQuote());
+getRandomQuote();
 
 /***
   Create the `printQuote` function to: 
@@ -81,22 +87,22 @@ console.log(getRandomQuote());
 var stringHtml = '';
 
 function printQuote() {
-  var number = getRandomQuote();
+  var allQuote = getRandomQuote();
+    stringHtml += '<p class="quote">' + allQuote.quote + '</p>' ;
+    stringHtml += '<p class="source">' + allQuote.source;
 
-    stringHtml += '<p class="quote">' + number.quote + '</p>' ;
-    stringHtml += '<p class="source">' + number.source + 
-
-    if (number.citation ) {
-    '<span class="citation">' + number.citation + '</span>' 
+    if (allQuote.citation ) {
+    stringHtml += '<span class="citation">' + allQuote.citation + '</span>' 
     }
-    if (number.source) {
-    + '<span class="year">' + number.year + '</span>';
+    else if (allQuote.source) {
+    stringHtml +=  '<span class="year">' + allQuote.year + '</span>';
     }
    stringHtml += '</p>';
+  //  console.log(stringHtml);
  }
 
- console.log(stringHtml);
-
+ 
+// printQuote();
  
 
 /***
