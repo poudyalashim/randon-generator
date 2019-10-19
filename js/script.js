@@ -59,9 +59,9 @@ var quotes = [
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
 function getRandomQuote() {
-  const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
-  return randomNumber;
-}
+  const randomNumber = quotes[Math.floor(Math.random() * quotes.length) + 1];
+  return quotes[randomNumber];
+};
 
 console.log(getRandomQuote());
 
