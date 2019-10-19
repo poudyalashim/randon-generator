@@ -17,7 +17,39 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+var quotes = [
+  {
+     quote: 'If you judge people, you have no time to love them.',
+     source: 'Mother Teresa'
+  },
 
+  {
+    quote: 'The future belongs to those who prepare for it today.',
+    source: 'Malcolm X'
+  },
+
+  {
+    quote: "It always seems impossible until it's done.",
+    source: "Nelson Mandela"
+  },
+
+  {
+    quote: "It's not how much you have that makes people look up to you, it's who you are.",
+    source: "Elvis Presley"
+  },
+
+  {
+    quote: "Good artists copy, great artists steal.",
+    source: "Pablo Picasso",
+    citation: "wisdomquotes.com",
+    year: 2019
+  }
+
+];
+
+
+
+// console.log(quotes[4].year);
 
 
 
@@ -26,9 +58,12 @@ project 1 - A Random Quote Generator
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
+function getRandomQuote() {
+  const randomNumber = Math.floor(Math.random() * quotes.length) + 1;
+  return randomNumber;
+}
 
-
-
+console.log(getRandomQuote());
 
 /***
   Create the `printQuote` function to: 
@@ -42,9 +77,25 @@ project 1 - A Random Quote Generator
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+function print( box ) {
+  var outputDiv = document.getElementById('output');
+  outputDiv.innerHTML = stringHtml;
+}
+var stringHtml = '';
 
+function printQuote() {
+  var number = getRandomQuote();
+  for (let i = 0; i < quotes.length; i += 1 ) {
+    stringHtml += '<p class="quote">' + quotes[i].quote + '</p>' ;
+    stringHtml += '<p class="source">' + quotes[i].source + 
+    
+    '<span class="citation">' + quotes[i].citation + '</span>' +
+  }
+}
 
+ 
 
+ 
 
 /***
   When the "Show another quote" button is clicked, the event listener 
